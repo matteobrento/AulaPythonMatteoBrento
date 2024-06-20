@@ -11,14 +11,19 @@ while controllo == True:
     if (scelta != "si"):
         controllo = False
 
-while controllo1 == True:
-    inserimento = int(input("Inserisci un numero >= 2 per controllare se è primo o no: "))
 
-    if(inserimento/1 and inserimento/inserimento):
+while controllo1 == True:
+    inserimento = int(input("Inserisci un numero per controllare se è primo o no: "))
+
+    if(inserimento%2 != 0):
         print("Il numero è primo ")
-    elif(inserimento < 2):
-        print("Errore")
+    elif(inserimento == 2):
+        print("Il numero è primo, in quanto 2 è il primo dei numeri primi ")
+    elif(inserimento < 2) :
+        print("Il numero non è primo")
+
     else:
         print("Il numero non è primo")
-        controllo = False
+    
+    break
 
