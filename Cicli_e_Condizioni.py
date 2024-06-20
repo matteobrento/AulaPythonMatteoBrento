@@ -79,6 +79,38 @@ while controllo == True:
 
 
 
+lista = [1, 6, 5, 8, 50]
+max = lista[0]
+
+controllo = True
+while controllo == True:
+
+    if not lista:
+        print("Lista Vuota")
+    else:
+        for elemento in lista:
+            if elemento > max:
+                max = elemento  
+
+            controllo = True
+
+    print("L'elemento massimo è: ")
+    print(max)
+    print("Il numero di elementi della lista è: ")
+    print(len(lista))
+    break
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
