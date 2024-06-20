@@ -23,22 +23,74 @@ while controllo == True:
         controllo = False
 
 
-#Esercizio 3: creo un input con lista e utilizzo un ciclo for sulla lista per iterare tutti gli elementi stampandone in quadrato
+#Esercizio 3: creo un input con lista e utilizzo un ciclo for sulla lista per iterare tutti gli elementi stampandone il quadrato
 
-lista = [1, 2, 5, 10, 50]
 controllo = True
+lista = []
 
-while controllo == True:
+while(controllo == True):
+    #inserimentoValore = int(input("Inserisci un valore: "))
+    #lista.append(inserimentoValore)
 
-    for i in lista:
-        print(i*i)
+    scelta = input("Vuoi inserire un numero? ")
+    if (scelta == "si"):
+        inserimentoValore = int(input("Inserisci un valore: "))
+        lista.append(inserimentoValore)
 
-    scelta = input("Vuoi eseguire di nuovo l'operazione? ")
-    if (scelta != "si"):
+        for i in lista:
+            print(i*i)
+    
+    else:
         controllo = False
 
 
+
 #Esercizio 4: If, While e For
+
+lista = [1, 6, 5, 8, 50]
+max = lista[0]
+
+controllo = True
+while controllo == True:
+
+    for elemento in lista:
+        if elemento > max:
+            max = elemento  
+
+        controllo = True
+
+    print("L'elemento massimo è: ")
+    print(max)
+    break
+
+
+controllo = True
+sommaElementi = 0
+while controllo == True:
+
+    for elemento in lista:
+        sommaElementi += elemento
+
+    controllo = True
+
+    print("La somma degli elementi è: ")
+    print(sommaElementi)
+    break
+
+
+
+
+
+
+
+        
+
+
+          
+
+
+
+
 
 
 
