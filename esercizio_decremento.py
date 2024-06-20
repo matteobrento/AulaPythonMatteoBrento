@@ -25,5 +25,8 @@ while controllo1 == True:
     else:
         print("Il numero non è primo")
     
-    break
+    scelta = input("Vuoi inserire un altro numero? ")
+    if (scelta != "si"):
+        break
+    
 
