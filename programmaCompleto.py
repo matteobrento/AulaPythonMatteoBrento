@@ -5,7 +5,7 @@ somma = 0   #variabile somma
 while controllo:    #inizio del ciclo
     while  controllo1:
         
-        print("Scegli 1 per Pari-Dispari, 2 per vedere se n è primo: ")
+        print("Scegli 0 per Uscire, 1 per Pari-Dispari, 2 per vedere se n è primo: ")
         cod = int(input("Scegli un codice: "))
 
         if(cod == 1):
@@ -27,13 +27,16 @@ while controllo:    #inizio del ciclo
                 #break
                 controllo = False
 
+            else:        
+                print("Il numero non è positivo ")  #numero non positivo, inserire di nuovo
+
         elif(cod == 2):
             numPos = int(input("Inserisci un numero intero: "))
 
             if(numPos > 1):
                 Primo = True
 
-                for i in range(2, numPos, 1):
+                for i in range(2, numPos, 1):   #calcolo numero primo
                     if(numPos%i == 0):
                         Primo = False
                         break
@@ -42,10 +45,17 @@ while controllo:    #inizio del ciclo
                     print(f"{numPos} è un numero primo.")
                 else:
                     print(f"{numPos} non è un numero primo.")
-                        
         
-else:        
-    print("Il numero non è positivo ")  #numero non positivo, inserire di nuovo
+        else:
+            print("Programma terminato")
+            break
+            
+
+    
+
+        
+
+    
 
     
 
