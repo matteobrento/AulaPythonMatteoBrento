@@ -13,11 +13,11 @@ def quadrato(numero):
 
 def pari_o_dispari(numero):
 
-    if(numero%2 == 0):
-        return("Pari")
+    if numero%2 == 0:
+        return"Pari"
     
     else:
-        return("Dispari")
+        return"Dispari"
     
 def cifre(numero):
     return len(str(numero))
@@ -35,10 +35,8 @@ while controllo:
     print(dict)
 
     continua = input("Vuoi inserire un altro numero ? ")
-    if(continua == "si"):
-        controllo = True
-
-    else:
+    if continua == "no":
+    
         print("Programma Terminato")
         controllo = False
     
