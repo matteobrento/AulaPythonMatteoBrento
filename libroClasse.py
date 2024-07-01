@@ -5,10 +5,10 @@ class Libro:
         self.autore = autore
         self.pagine = pagine
 
-    def stampa(self):
+    def descrizione(self):
         print("Il libro",self.titolo,"è stato scritto da",self.autore,"e ha",self.pagine,"pagine")
 
 
 libro1 = Libro("Harry Potter", "Rowling", "300")
-libro1.stampa()
+libro1.descrizione()
         
