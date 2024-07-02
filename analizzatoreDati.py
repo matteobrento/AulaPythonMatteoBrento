@@ -5,14 +5,16 @@ class Dato:
         self.importi = []
 
     def aggiungi_importi(self):
-
+   
         try:
             valori = input("Inserisci valori separati da spazi: ").split()
             for valore in valori:
                 self.importi.append(int(valore))
             print(self.importi)
+                
         except ValueError:
             print("Devi inserire solo numeri separati da spazi")
+            quit()
 
 
     def calcolo_totale_e_media(self):
@@ -41,10 +43,11 @@ class Dato:
             for numVendite in self.importi:
                 if numVendite > media:
                     listaSopraMedia.append(self.importi.index(numVendite))
-                    print(f"I giorni in cui la media è maggiore del numero di vendite è: {listaSopraMedia}")
+            print(f"I giorni in cui la media è maggiore del numero di vendite è: {listaSopraMedia}")
         else:
             print("Non si può effettuare una stima perchè non ci sono dati disponibili.")
-    
+
+
 dato = Dato()
 dato.aggiungi_importi()
 dato.calcolo_totale_e_media()
