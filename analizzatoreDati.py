@@ -32,6 +32,7 @@ class Dato:
 
     def vendite_sopra_la_media(self):
 
+        listaSopraMedia = []
         if self.importi:
             somma = 0
             for importo in self.importi:
@@ -39,7 +40,8 @@ class Dato:
                 media = somma/len(self.importi)
             for numVendite in self.importi:
                 if numVendite > media:
-                    print(f"I giorni in cui la media è maggiore del numero di vendite è: {self.importi.index(numVendite)}")
+                    listaSopraMedia.append(self.importi.index(numVendite))
+                    print(f"I giorni in cui la media è maggiore del numero di vendite è: {listaSopraMedia}")
         else:
             print("Non si può effettuare una stima perchè non ci sono dati disponibili.")
     
