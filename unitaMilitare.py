@@ -24,6 +24,12 @@ class Fanteria(UnitaMilitare):
 
     def muovi(self):
         return super().muovi()
+    
+    def attacco(self):
+        return super().attacco()
+    
+    def ritira(self):
+        return super().ritira()
 
     def costruisci_trincea(self):
         difesa = 0
@@ -49,6 +55,9 @@ class Artiglieria(UnitaMilitare):
     def muovi(self):
         return super().muovi()
     
+    def ritira(self):
+        return super().ritira()
+    
     def calibra_artiglieria(self):
         precisione = 0
         pezzi = int(input("Inserisci il numero di pezzi da cui è composta la tua artiglieria: "))
@@ -72,6 +81,12 @@ class Cavalleria(UnitaMilitare):
     def muovi(self):
         return super().muovi()
     
+    def attacco(self):
+        return super().attacco()
+    
+    def ritira(self):
+        return super().ritira()
+    
     def esplora_terreno(self):
         terreno = int(input("Inserisci il numero di Km che vuoi esplorare: "))
         if terreno%2 == 0:
@@ -89,6 +104,9 @@ class SupportoLogistico(UnitaMilitare):
 
     def muovi(self):
         return super().muovi()
+    
+    def ritira(self):
+        return super().ritira()
 
     def rifornisci_unita(self):
 
@@ -114,17 +132,17 @@ class Ricognizione(UnitaMilitare):
         print("Effettua una ricognizione")
 
 
-class ControlloMilitare(UnitaMilitare):
+class ControlloMilitare(UnitaMilitare): #classe controllo con ereditarietà multipla
 
     def __init__(self):
         
-        self.unita_registrate = []
-        self.tipo_unita = {"Fanteria":0, "Artiglieria":0, "Cavalleria":0, "SupportoLogistico":0, "Ricognizione":0}
+        self.unita_registrate = []  #lista vuota
+        self.tipo_unita = {"Fanteria":0, "Artiglieria":0, "Cavalleria":0, "SupportoLogistico":0, "Ricognizione":0}  #dizionario che si aggiorna ogni qual volta viene aggiunto l'unità di un tipo inserito
 
-    def registraUnità(self,unita):
-        self.unita_registrate.append(unita)
-        tipo = unita.classe
-        self.tipo_unita[tipo] += 1
+    def registraUnità(self,unita):  
+        self.unita_registrate.append(unita) #append dell'unità alla lista
+        tipo = unita.classe #scelta del tipo in base alla classe
+        self.tipo_unita[tipo] += 1  #incremento del numero
 
     def mostra_unita(self):
         print(f"Il numero di unità aggiornate è: {self.tipo_unita}")
@@ -140,6 +158,9 @@ class ControlloMilitare(UnitaMilitare):
 """ unita = UnitaMilitare("Unita1", 50)
 unita.muovi()
 print("\n") """
+
+
+#TEST
 
 fanteria = Fanteria("Fanteria", 100)
 fanteria.muovi()
