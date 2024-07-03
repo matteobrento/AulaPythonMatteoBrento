@@ -54,7 +54,7 @@ class Artiglieria(UnitaMilitare):
         pezzi = int(input("Inserisci il numero di pezzi da cui è composta la tua artiglieria: "))
         for p in range(0, pezzi):
             precisione += 1
-        print(f"Hai aggiunto {pezzi} pezzi e la tua precisione è incrementata a: {precisione}")
+        print(f"Hai aggiunto {pezzi} pezzi e la tua precisione è incrementata a: {precisione/2}")
 
     """ def aggiungi_artiglieria(self):
 
@@ -111,7 +111,7 @@ class Ricognizione(UnitaMilitare):
         return super().muovi()
     
     def conduci_ricognizione():
-        pass
+        print("Effettua una ricognizione")
 
 
 class ControlloMilitare(UnitaMilitare):
@@ -126,6 +126,16 @@ class ControlloMilitare(UnitaMilitare):
         tipo = unita.classe
         self.tipo_unita[tipo] += 1
 
+    def mostra_unita(self):
+        print(f"Il numero di unità aggiornate è: {self.tipo_unita}")
+
+    def dettagli(self,nome):
+        
+        for unita in self.unita_registrate:
+            if unita.nome == nome:
+                print(f"Nome: {unita.nome}")
+                print(f"Numero Soldati: {unita.numero_soldati}")
+
 
 """ unita = UnitaMilitare("Unita1", 50)
 unita.muovi()
@@ -136,31 +146,39 @@ fanteria.muovi()
 fanteria.costruisci_trincea()
 controllo = ControlloMilitare()
 controllo.registraUnità(fanteria)
-print(controllo.tipo_unita)
+controllo.mostra_unita()
 print("\n")
 
 artiglieria = Artiglieria("Artiglieria", 80)
 artiglieria.muovi()
 artiglieria.calibra_artiglieria()
 controllo.registraUnità(artiglieria)
-print(controllo.tipo_unita)
+controllo.mostra_unita()
 print("\n")
 
 cavalleria1 = Cavalleria("Cavalleria1", 30)
 cavalleria1.esplora_terreno()
 controllo.registraUnità(cavalleria1)
-print(controllo.tipo_unita)
+controllo.mostra_unita()
 print("\n")
 cavalleria2 = Cavalleria("Cavalleria2", 50)
 cavalleria2.esplora_terreno()
 controllo.registraUnità(cavalleria2)
-print(controllo.tipo_unita)
+controllo.mostra_unita()
 print("\n")
 
 supporto = SupportoLogistico("Supporto", 20)
 supporto.rifornisci_unita()
 controllo.registraUnità(supporto)
-print(controllo.tipo_unita)
+controllo.mostra_unita()
+print("\n")
+
+controllo.dettagli("Fanteria")
+controllo.dettagli("Artiglieria")
+controllo.dettagli("Cavalleria2")
+controllo.dettagli("Supporto")
+
+
 
 
 
