@@ -131,27 +131,24 @@ while True:
     print("1. Carta di Credito")
     print("2. Account PayPal")
     print("3. Bonifico Bancario")
-    print("4. Mostra Pagamenti effettuati")
+    print("4. Mostra Pagamenti effettuati \n")
 
-    scelta = int(input("Inserisci il numero della tua scelta: "))
+    scelta = int(input("Scegli l'opzione che vuoi eseguire: "))
     if scelta == 1:
         carta = CartaDiCredito("Matteo", "1234", "12-24", 659)
         gestore = GestorePagamenti()
         gestore.registraPagamento(carta)
         gestore.pagamento(carta)
-        gestore.mostraElencoMetodi()
     elif scelta == 2:
         paypal = PayPal("Matteo", "1234", "12-24", 659, "matteobrento", "12345")
         gestore = GestorePagamenti()
         gestore.registraPagamento(paypal)
         gestore.pagamento(paypal)
-        gestore.mostraElencoMetodi()
     elif scelta == 3:
         bonifico = PayPal("Matteo", "1234-5678-9000-0000")
         gestore = GestorePagamenti()
         gestore.registraPagamento(bonifico)
         gestore.pagamento(bonifico)
-        gestore.mostraElencoMetodi()
     elif scelta == 4:
         gestore.mostraElencoMetodi()
     else:
@@ -159,7 +156,7 @@ while True:
         quit()
 
     print("\n")
-    continua = input("Vuoi effettuare un altro pagamento ?")
+    continua = input("Vuoi effettuare un'altra operazione ?")
     if continua.lower() != "si":
         break
 
