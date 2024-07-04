@@ -18,14 +18,17 @@ class Posto:
             self.__occupato = False
             print("Posto liberato!")
 
-    def get_numero(self):
+    def get_numero(self):   #ottiene il numero
         return self.__numero
 
-    def get_fila(self):
+    def get_fila(self): #ottiene la fila
         return self.__fila
 
-    def get_stato(self):
+    def get_stato(self):    #ottiene lo stato di occupato
         return self.__occupato
+
+    def set_occupato(self, stato):  #varia lo stato di occupato
+        self.__occupato = stato
 
 
 class PostoVIP(Posto):
@@ -37,7 +40,7 @@ class PostoVIP(Posto):
         if self.get_stato():
             print("Il posto è già occupato!")
         else:
-            self._Posto__occupato = True  
+            self.set_occupato(True)
             print("Posto VIP prenotato!")
             print(f"Servizi extra inclusi: {self.__servizi_extra}")
             while True:
@@ -62,11 +65,11 @@ class PostoStandard(Posto):
         if self.get_stato():
             print("Il posto è già occupato!")
         else:
-            self._Posto__occupato = True 
+            self.set_occupato(True)
             print(f"Posto standard prenotato! Costo aggiuntivo: {self.__costo_aggiuntivo} euro")
 
 
-class Teatro(Posto):
+class Teatro:
     def __init__(self):
         self.__numero_posti = []
 
@@ -102,6 +105,7 @@ teatro.prenota_posto(2, 'A')
 teatro.prenota_posto(3, 'B')
 
 teatro.stampa_posti()
+
 
 
 
