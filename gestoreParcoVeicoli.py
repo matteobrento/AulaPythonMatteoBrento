@@ -1,20 +1,22 @@
 class Veicolo:
 
-    def __init__(self, marca, modello, anno, accensione = False):
+    def __init__(self, marca, modello, anno, accensione):
         self.__marca = marca
         self.__modello = modello
         self.__anno = int(anno)
         self.__accensione = accensione
 
     def accendi(self):
-        if self.__accensione:
+        self.__accensione = False
+        if self.__accensione :
             self.__accensione = True
-            print("Veicolo acceso!")
+        print("Veicolo acceso!")
 
     def spegni(self):
-        if self.__accensione == True:
+        self.__accensione = True
+        if self.__accensione:
             self.__accensione = False
-            print("Veicolo Spento!")
+        print("Veicolo Spento!")
 
     #METODI GET E SET PRIVATI UTILIZZABILI SOLO DAL GESTORE
 
@@ -45,11 +47,11 @@ class Veicolo:
 
 class Auto(Veicolo):
 
-    veicolo = "Auto"
+    classe = "Auto"
 
     def __init__(self, marca, modello, anno, numero_porte, accensione=False):
         super().__init__(marca, modello, anno, accensione)
-        self.__numero_porte = numero_porte
+        self.__numero_porte = int(numero_porte)
 
     def suona_clacson(self):
         print("Popi popi")
@@ -63,11 +65,11 @@ class Auto(Veicolo):
 
 class Furgone(Veicolo):
 
-    veicolo = "Furgone"
+    classe = "Furgone"
 
     def __init__(self, marca, modello, anno, capacita_carico, accensione=False):
         super().__init__(marca, modello, anno, accensione)
-        self.__capacita_carico = capacita_carico
+        self.__capacita_carico = int(capacita_carico)
         self.__carico_attuale = 0
 
     def carica(self, merce):
@@ -97,7 +99,7 @@ class Furgone(Veicolo):
 
 class Motocicletta(Veicolo):
 
-    veicolo = "Motocicletta"
+    classe = "Motocicletta"
 
     def __init__(self, marca, modello, anno, tipo, accensione=False):
         super().__init__(marca, modello, anno, accensione)
@@ -120,11 +122,36 @@ class Gestore(Veicolo):
 
     def __init__(self):
 
-        self.__veicoli == []
-        self.__tipoVeicolo == {"Auto":0, "Furgone":0, "Motocicletta":0}
+        self.veicoli = []
+        self.tipoVeicolo = {"Auto":0, "Furgone":0, "Motocicletta":0}
+
+    def aggiungi_veicolo(self, veicolo):
+        self.veicoli.append(veicolo)
+        tipo = veicolo.classe
+        self.tipoVeicolo[tipo] += 1
+
+    def rimuovi_veicolo(self, marca):
+        for veicolo in self.veicoli:
+            if veicolo.marca == marca:
+                self.veicoli.remove(veicolo)
+                print("Veicolo rimosso!")
+
+    def stampa(self):
+        print(f"L'elenco di veicoli è: {self.tipoVeicolo}")
+
 
     def set_accensione(self, veicolo, accensione):
         veicolo.__set_accensione(accensione)
+
+
+
+auto = Auto("Audi", "A1", 2015, 5)
+auto.accendi()
+auto.suona_clacson()
+gestore = Gestore()
+gestore.aggiungi_veicolo(auto)
+gestore.stampa()
+auto.spegni()
 
     
 
