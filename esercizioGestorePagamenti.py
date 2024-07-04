@@ -63,7 +63,7 @@ class PayPal(MetodoPagamento):
             if self._MetodoPagamento__nome == nome2 and self._MetodoPagamento__numero_carta == numero_carta2 and self._MetodoPagamento__data_scadenza == data2 and self._MetodoPagamento__cvc == cvc2:
                 print("La carta corrisponde ai dati registrati nel tuo account PayPal, perciò puoi effettuare il pagamento! ")
             
-                importo = int(input("Inserisci l'importo da pagare tramite Carta di Credito: "))
+                importo = int(input("Inserisci l'importo da pagare tramite PayPal: "))
                 if importo > self.__saldo:
                     print("Pagamento rifiutato! Non ci sono abbastanza soldi. ")
                 else:
