@@ -1,5 +1,4 @@
 class Posto:
-
     def __init__(self, numero, fila, occupato=False):
         self.__numero = int(numero)
         self.__fila = fila
@@ -21,25 +20,24 @@ class Posto:
 
     def get_numero(self):
         return self.__numero
-    
+
     def get_fila(self):
         return self.__fila
-    
+
     def get_stato(self):
         return self.__occupato
 
 
 class PostoVIP(Posto):
-
     def __init__(self, numero, fila, servizi_extra, occupato=False):
         super().__init__(numero, fila, occupato)
         self.__servizi_extra = servizi_extra
-    
+
     def prenota(self):
-        if self.__occupato:
+        if self.get_stato():
             print("Il posto è già occupato!")
         else:
-            self.__occupato = True
+            self._Posto__occupato = True  
             print("Posto VIP prenotato!")
             print(f"Servizi extra inclusi: {self.__servizi_extra}")
             while True:
@@ -56,21 +54,19 @@ class PostoVIP(Posto):
 
 
 class PostoStandard(Posto):
-
     def __init__(self, numero, fila, costo_aggiuntivo, occupato=False):
         super().__init__(numero, fila, occupato)
         self.__costo_aggiuntivo = costo_aggiuntivo
 
     def prenota(self):
-        if self.__occupato:
+        if self.get_stato():
             print("Il posto è già occupato!")
         else:
-            self.__occupato = True
+            self._Posto__occupato = True 
             print(f"Posto standard prenotato! Costo aggiuntivo: {self.__costo_aggiuntivo} euro")
 
 
 class Teatro(Posto):
-
     def __init__(self):
         self.__numero_posti = []
 
@@ -78,19 +74,23 @@ class Teatro(Posto):
         self.__numero_posti.append(posto)
 
     def prenota_posto(self, numero, fila):
+        trovato = False
         for posto in self.__numero_posti:
             if posto.get_numero() == numero and posto.get_fila() == fila:
                 posto.prenota()
-            else:
-                print("Posto non trovato! ")
+                trovato = True
+                break
+        if not trovato:
+            print("Posto non trovato!")
 
     def stampa_posti(self):
         print("Posti occupati:")
-        for posto in self._posti:
+        for posto in self.__numero_posti:
             if posto.get_stato():
                 print(f"Fila {posto.get_fila()}, Numero {posto.get_numero()}")
 
 
+print("Menu")
 
 teatro = Teatro()
 teatro.aggiungi_posto(Posto(1, 'A'))
