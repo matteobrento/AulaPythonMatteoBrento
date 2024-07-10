@@ -43,9 +43,7 @@ print(df)
 print("\n")
 
 df.to_csv("libri.csv", index=False)
-print("\n")
+df.to_html("libri.html", index=False)
 
-html = df.to_html(index=False)
-print(html)
 
 
