@@ -40,15 +40,18 @@ def cerca_pokemon():
         }
 
 def carica_pokedex():
+    
     if os.path.exists("pokedex.json"):
         with open("pokedex.json", "r") as file:
-            return json.load(file)
+            leggi = file.read()
+            return json.loads(leggi)
     else:
         return {}
 
 def salva_pokedex(pokedex):
     with open("pokedex.json", "w") as file:
-        json.dump(pokedex, file)
+        salva = json.dumps(pokedex)
+        file.write(salva)
     
 def aggiungi_pokemon():
 
@@ -58,10 +61,13 @@ def aggiungi_pokemon():
     if str(pokemon["id"]) not in pokedex:
         pokedex[str(pokemon["id"])] = pokemon
         print(f"Hai catturato: ID: {pokemon['id']} Nome: {pokemon['nome']} e lo hai aggiunto al Pokedex!")
-        print("Pokedex aggiornato: ", pokedex)
+        print("Pokedex aggiornato: ")
+        for chiave,valore in pokedex.items():
+            print(f"ID: {valore['id']}, Nome: {valore['nome']}, Abilità: {valore['abilita']}, Exp: {valore['exp']}, Altezza: {valore['altezza']}, Peso: {valore['peso']}")
+        
         salva_pokedex(pokedex)
     else:
-        print(f"Pokémon ID: {pokemon['id']} Nome: {pokemon['nome']} è già nel Pokédex.")
+        print(f"Pokémon ID: {pokemon['id']} Nome: {pokemon['nome']} è già nel Pokedex.")
 
 
 controllo = True
@@ -77,6 +83,10 @@ while controllo:
     if continua.lower() != "si":
         print("Arrivederci")
         controllo = False
+
+
+
+
 
 
 
