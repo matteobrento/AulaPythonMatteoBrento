@@ -12,16 +12,16 @@ import numpy as np
 controllo = True
 
 def crea_array():
-    int1 = int(input("Inserisci un valore: "))
-    int2 = int(input("Inserisci un valore: "))
-    s = "int64"
+    int1 = int(input("Inserisci un valore: "))  #primo valore dell'intervallo
+    int2 = int(input("Inserisci un valore: "))  #secondo valore dell'intervallo
+    s = "int64" 
     s1 = "float64"
-    scelta = int(input("1) dType INT, 2)dType FLOAT: "))
+    scelta = int(input("1) dType INT, 2)dType FLOAT: "))    #decide se vuole un dtype intero o float
     if scelta == 1:
-        array = np.arange(int1,int2,dtype=s)
+        array = np.arange(int1,int2,dtype=s)    #int
         print(array)
     elif scelta == 2:
-        array = np.arange(int1,int2,dtype=s1)
+        array = np.arange(int1,int2,dtype=s1)   #float
         print(array)
     else:
         print("Opzione non valida!")
@@ -30,12 +30,12 @@ def crea_array():
 
 def tipo():
 
-    array = crea_array()
+    array = crea_array()    #prende l'operazione di creazione da crea_array e stampa il tipo
     print(array.dtype)
 
 def struttura():
 
-    array = crea_array()
+    array = crea_array()    #prende l'operazione di creazione da crea_array e stampa la shape
     print(array.shape)
 
 
