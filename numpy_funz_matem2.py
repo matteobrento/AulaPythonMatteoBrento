@@ -47,15 +47,25 @@ print(f"La somma dei valori maggiori di 5 è: {somma} \n")
 
 def array50():
 
-    array = np.linspace(0,10,50)
-    print("\nArray di 50 valori equidistanti tra 0 e 1: \n", array, "\n")
-    return array
+    try:
+        int1 = int(input("Inserisci il primo valore del range: "))
+        int2 = int(input("Inserisci il secondo valore del range: "))
+        dimensione = int(input("Inserisci la dimensione del tuo array: "))
+        array = np.linspace(int1, int2, dimensione)
+        print(f"\nArray di {dimensione} valori equidistanti tra {int1} e {int2}: \n", array, "\n")
+        return array
+    except ValueError as e:
+        print("\nErrore nei valori passati:", e)
 
 def array50_casuali():
 
-    array2 = np.random.random(50)
-    print("\nArray di 50 valori casuali tra 0 e 1 con random.random: \n", array2, "\n")
-    return array2
+    try:
+        dimensione = int(input("Inserisci la dimensione del tuo array: "))
+        array2 = np.random.random(dimensione)
+        print("\nArray di 50 valori casuali tra 0 e 1 con random.random: \n", array2, "\n")
+        return array2
+    except ValueError as e:
+        print("\nErrore nel passare la dimensione:", e)
 
 def somma_due_array():
     
