@@ -1,0 +1,37 @@
+<studenti>
+    <studente id="1">
+        <nome>Samantha</nome>
+        <corsi>
+            <corso id="matematica">
+                <voto>4</voto>
+                <voto>7</voto>
+            </corso>
+        </corsi>
+    </studente>
+    <studente id="2">
+        <nome>Pino</nome>
+        <corsi>
+            <corso id="italiano">
+                <voto>19</voto>
+                <voto>3</voto>
+            </corso>
+            <corso id="matematica">
+                <voto>4</voto>
+                <voto>9</voto>
+            </corso>
+        </corsi>
+    </studente>
+    <studente id="3">
+        <nome>Garibaldi</nome>
+        <corsi>
+            <corso id="italiano">
+                <voto>1</voto>
+                <voto>3</voto>
+            </corso>
+            <corso id="matematica">
+                <voto>7</voto>
+                <voto>8</voto>
+            </corso>
+        </corsi>
+    </studente>
+<studente id="4"><nome>Pietro</nome><corsi><corso id="italiano"><voto>8</voto><voto>9</voto></corso><corso id="inglese"><voto>3</voto><voto>7</voto></corso></corsi></studente></studenti>

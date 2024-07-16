@@ -1,0 +1,10 @@
+<libri>
+<libro>
+<titolo>Python Cookbook</titolo>
+<autore>David Beazley</autore>
+</libro>
+<libro>
+<titolo>Fluent Python</titolo>
+<autore>Luciano Ramalho</autore>
+</libro>
+</libri>
