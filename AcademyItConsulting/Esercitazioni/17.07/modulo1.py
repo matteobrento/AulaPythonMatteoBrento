@@ -22,7 +22,6 @@ Visualizzare il numero di vendite per ogni città.
 """
 
 import pandas as pd
-import numpy as np
 
 def crea_dataframe():   #dataframe iniziale con i valori della slide
     data = {
@@ -41,6 +40,7 @@ def totale_vendite(df): #aggiungo la colonna totale vendite come prodotto di qua
 
     df["Totale_Vendite"] = df["Quantità"]*df["Prezzo_Unitario"]
     print("\nDataFrame con Totale_Vendite: \n", df, "\n")
+    return df
 
 def totale_vendite_per_prodotto(df):    #ho utilizzato groupby e agg trovati in internet per raggruppare per una colonna ed effettuare un operazione matematica
 
@@ -66,6 +66,7 @@ def filtro_vendite(df): #try-except per il valore da input e creo un filtro che 
             break
     except ValueError as e:
             print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")
+    df = totale_vendite(df)
     df_filtro = df[df["Totale_Vendite"]>val]
     print("\nNuovo DataFrame con Totale Vendite > di un valore: \n", df_filtro, "\n")
 
