@@ -9,7 +9,10 @@ def menu():
 4. Somma elementi matrice
 5. Moltiplicazione element-wise
 6. Media elementi matrice
-7. Calcolo determinante                     
+7. Calcolo determinante 
+8. Matrice Inversa
+9. Filtro Matrice
+10. Funzioni Matematiche (Seno, Coseno, Esponenziale)                    
 0. Esci
 """)
     scelta_menu=input("\nScegli un opzione: ")
@@ -36,6 +39,12 @@ def main():
             mod1.media_mat(mat)
         elif scelta=="7":       #Calcolo determinante
             mod1.det_mat(mat,righe,col)
+        elif scelta =="8":
+            mod1.matrice_inversa(mat,righe,col)
+        elif scelta =="9":
+            mod1.filtro_mat(mat)
+        elif scelta =="10":
+            mod1.funzione_matematica(mat)
         elif scelta=="0":       #Esci
             break
         else:

@@ -27,7 +27,17 @@ def crea_matrice():
         except ValueError as e:
             print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")   #except con ValueError nel caso in cui si inserisce un valore non intero
 
-    matrice = np.random.randint(0,100,size=(righe,col))
+    variabile = input("Vuoi inserire un numero casuale(1) o inserirli da input(2) ? ")
+    if variabile == "1":
+        matrice = np.random.randint(0,100,size=(righe,col))
+    elif variabile == "2":
+        v=np.zeros(righe*col)
+        for i in range(righe*col):
+            inp=int(input("Inserisci il valore: "))
+            v[i]=inp
+
+        matrice = v.reshape(righe, col)
+
     print(f"\nLa matrice 2D di partenza è:\n {matrice}")
 
     return matrice,righe,col    #return della matrice creata, delle righe e delle colonne
@@ -59,6 +69,45 @@ def molt_elem_wise(matrice,righe,col):
     print(f"\nSeconda matrice generata:\n{matrice2}\n")
     print(f"Prodotto delle due matrici:\n {prodotto_matrici}")
 
-#calcolo media della matricd
+#calcolo media della matrice
 def media_mat(matrice):
     print(f"\nLa media degli elementi della matrice è: {np.mean(matrice)}")
+
+#matrice inversa
+def matrice_inversa(matrice,righe,col): # funzione che calcola la matrice inversa
+    det = np.linalg.det(matrice)
+    if righe == col and det != 0: # la matrice è invertibile solo se è quadrata ed il suo determinante è diverso da 0
+        mat_inv = np.linalg.inv(matrice)
+        print(f"La matrice inversa è:\n{mat_inv}")
+    else:
+        print(f"La matrice non è invertibile!") 
+
+#Filtro
+def filtro_mat(matrice):
+    f = int(input("Inserire filtro: "))
+    while True:
+        bol = input("1: Minore di\n2: Maggiore di\n")
+        if bol == "1":
+            mat_filtr = matrice[matrice<f]
+            break
+        elif bol == "2":
+            matr_filtr = matrice[matrice>f]
+            break
+        else:
+            print("Indicare scelta valida")
+
+    print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
+
+def funzione_matematica(matrice):
+
+    scelta = input("1. Sin - 2. Cos - 3. Exp: ")
+    if scelta == "1":
+        seno = np.sin(matrice)
+        print("Seno dei valori: \n", seno)
+    elif scelta == "2":
+        coseno = np.cos(matrice)
+        print("Coseno dei valori: \n", coseno)
+    elif scelta == "3":
+        esponenziale = np.exp(matrice)
+        print("Esponenziale dei valori: \n", esponenziale)
+    
