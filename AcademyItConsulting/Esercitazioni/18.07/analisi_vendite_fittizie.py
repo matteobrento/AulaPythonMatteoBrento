@@ -21,34 +21,50 @@ import pandas as pd
 import numpy as np
 import random
 
-citta = ["Bari", "Milano", "Torino"]
-df_citta = []
-prodotti = ["T-Shirt", "Felpa", "Pantaloncino"]
-df_prodotti = []
-vendite = np.random.randint(50, 400, size=15)
-date = np.random.randint(1, 31, size=15)
+def generazione_valori():
+    citta = ["Bari", "Milano", "Torino"]
+    df_citta = []
+    prodotti = ["T-Shirt", "Felpa", "Pantaloncino"]
+    df_prodotti = []
+    vendite = np.random.randint(50, 400, size=15)
+    date = np.random.randint(1, 31, size=15)
 
-for i in range(15):
-    citta_casuale = random.choice(citta)
-    df_citta.append(citta_casuale)
+    for i in range(15):
+        citta_casuale = random.choice(citta)
+        df_citta.append(citta_casuale)
 
-for i in range(15):
-    prodotto_casuale = random.choice(prodotti)
-    df_prodotti.append(prodotto_casuale)
+    for i in range(15):
+        prodotto_casuale = random.choice(prodotti)
+        df_prodotti.append(prodotto_casuale)
 
-data = {
-    "Giorno del mese di Luglio": date,
-    "Città": df_citta,
-    "Prodotto": df_prodotti,
-    "Vendite": vendite
-}
+    return date, df_citta, df_prodotti, vendite
 
-df = pd.DataFrame(data)
-print("\nDataFrame Iniziale: \n", df, "\n")
+def crea_dataframe():
+    
+    date, df_citta, df_prodotti, vendite = generazione_valori()
+    data = {
+        "Giorno del mese di Luglio": date,
+        "Città": df_citta,
+        "Prodotto": df_prodotti,
+        "Vendite": vendite
+    }
+
+    df = pd.DataFrame(data)
+    print("\nDataFrame Iniziale: \n", df, "\n")
+    return df
+
+df = crea_dataframe()
 
 pivot_df = df.pivot_table(values="Vendite", index="Prodotto", columns="Città", aggfunc="mean")
 print("Vendite medie di ciascun prodotto per città: \n", pivot_df, "\n")
 
+""" 
 grouped_df = df.groupby('Prodotto').sum()
-print("Vendite totali per ogni prodotto: \n", grouped_df)
+print("Vendite totali per ogni prodotto: \n", grouped_df) 
+"""
+
+grouped_df = df.groupby('Prodotto').agg({
+    'Vendite': 'sum',
+})
+print("Vendite totali per ogni prodotto: \n", grouped_df) 
 
