@@ -56,7 +56,7 @@ def prodotto_piu_venduto(df):   #ho utilizzato idmax() per cercare l'id del valo
 
 def citta_piu_vendite(df):  #ho utilizzato idmax() per cercare l'id del valore più alto della colonna specificata
 
-    citta_piu_vendite = df["Città"].sum().idxmax()
+    citta_piu_vendite = df["Città"].idxmax()
     print("\nLa città con il maggior numero di vendite è l'ID in posizione: ", citta_piu_vendite, "\n")
 
 def filtro_vendite(df): #try-except per il valore da input e creo un filtro che mi fa stampare un nuovo df con totale vendite maggiore del valore passatovi
