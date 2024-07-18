@@ -56,8 +56,13 @@ def prodotto_piu_venduto(df):   #ho utilizzato idmax() per cercare l'id del valo
 
 def citta_piu_vendite(df):  #ho utilizzato idmax() per cercare l'id del valore più alto della colonna specificata
 
-    citta_piu_vendite = df["Città"].idxmax()
-    print("\nLa città con il maggior numero di vendite è l'ID in posizione: ", citta_piu_vendite, "\n")
+    df = totale_vendite(df)
+    df_vendite_citta = df.groupby("Città").agg({
+        "Totale_Vendite": "sum"
+    }).reset_index()    #resetta l'indice rendendolo una colonna (Città)
+    citta_piu_vendite = df_vendite_citta.loc[df_vendite_citta["Totale_Vendite"].idxmax()]["Città"]  #idmax prende l'id massimo e loc accede alla riga corrispondente, Citta seleziona il valore di citta con il valore massimo di vendite
+    print("\nLa città con il maggior volume di vendite è: ", citta_piu_vendite, "\n")
+    return citta_piu_vendite
 
 def filtro_vendite(df): #try-except per il valore da input e creo un filtro che mi fa stampare un nuovo df con totale vendite maggiore del valore passatovi
     try:
