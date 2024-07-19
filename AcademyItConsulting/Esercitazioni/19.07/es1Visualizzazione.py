@@ -71,22 +71,19 @@ def temperature(df):
     return temp_max, temp_min, temp_media, temp_mediana
 
 def plot_dati(df):
-    plt.figure(figsize=(15, 5))
 
-    
-    plt.subplot(1, 3, 1)
+    plt.figure(figsize=(15, 5))
+    plt.subplot(1, 2, 1)
     sns.histplot(df["Temperatura_Giornaliera"], bins=10, kde=True)
     plt.title("Distribuzione delle Temperature")
     plt.xlabel("Temperatura (°C)")
     plt.ylabel("Frequenza")
 
-    
-    plt.subplot(1, 3, 3)
+    plt.subplot(1, 2, 2)
     sns.scatterplot(x=df.index, y=df["Temperatura_Giornaliera"])
     plt.title("Temperatura Giornaliera")
     plt.xlabel("Giorni")
     plt.ylabel("Temperatura (°C)")
-
     plt.tight_layout()
     plt.show()
 
