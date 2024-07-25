@@ -18,8 +18,11 @@ print("Kg: \n", calorie_X, "\n")
 calorie_y = df.iloc[:, 2].values    #qui prendiamo le calorie
 print("Calorie: \n", calorie_y, "\n")
 
+X = df[["kg"]]  #oppure X = df["kg"].reshape(-1,1)
+y = df["calories"]
+
 calorie_X_train, calorie_X_test, calorie_y_train, calorie_y_test = train_test_split(
-calorie_X, calorie_y, test_size=0.20)
+X, y, test_size=0.20)
 
 """ calorie_X_train = calorie_X[:-20]   
 calorie_X_test = calorie_X[-20:] """
