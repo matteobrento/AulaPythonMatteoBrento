@@ -31,13 +31,13 @@ print("Coefficiente: ", regressione.coef_, "\n")
 print("Intercetta: ", regressione.intercept_, "\n")
 
 plt.figure(figsize=(10,5))
-plt.subplot(2,1,1).set_title("Relazione: House Age - House Price")
+plt.subplot(1,2,1).set_title("Relazione: House Age - House Price")
 plt.scatter(X_test['X2 house age'], y_test, color="red")
-plt.plot(X_test['X2 house age'], predizione, color="green")
+plt.scatter(X_test['X2 house age'], predizione, color="blue")
 
-plt.subplot(2,1,2).set_title("Relazione: Distance to Station - House Price")
+plt.subplot(1,2,2).set_title("Relazione: Distance to Station - House Price")
 plt.scatter(X_test['X3 distance to the nearest MRT station'], y_test, color="red")
-plt.plot(X_test['X3 distance to the nearest MRT station'], predizione, color="green")
+plt.scatter(X_test['X3 distance to the nearest MRT station'], predizione, color="blue")
 plt.show()
 
 display = PredictionErrorDisplay(y_true=y_test, y_pred=predizione)
