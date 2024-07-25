@@ -22,7 +22,7 @@ y = df['Y house price of unit area']
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 regressione = LinearRegression()
-regressione.fit(X,y)
+regressione.fit(X_train, y_train)
 predizione = regressione.predict(X_test)
 score = regressione.score(X_train, y_train)
 print("Score: ", score, "\n")
