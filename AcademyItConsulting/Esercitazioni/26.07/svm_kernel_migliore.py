@@ -67,8 +67,6 @@ def plot_svc_decision_function(model, ax=None, plot_support=True):
 plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn',edgecolors='black')
 #richiamimamo la funzione
 plot_svc_decision_function(model)
-plt.show()
-
 
 
 kernel_linear = 'linear'
